@@ -1,0 +1,102 @@
+.chat {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  background-color: #EBEBEB;
+  min-height: 629px;
+  width: 100%;
+  padding: 30px 20px;
+
+  &__info-img {
+    margin: 18px 0;
+    width: 130px;
+    height: 132px;
+    align-self: center;
+  }
+
+  &__info-text {
+    font-weight: 600;
+    font-size: 15px;
+    line-height: 20.3px;
+    width: 271px;
+    text-align: center;
+    align-self: center;
+  }
+
+  &__button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 12px;
+    margin-top: auto;
+    margin-right: 16px;
+  }
+
+  &__form {
+    align-self: flex-end;
+    width: 100%;
+    margin-top: 20px;
+
+    &-input {
+      width: 100%;
+      height: 144px;
+      border-radius: 25px;
+      border: 2px solid #EE26C2;
+      padding: 25px 20px;
+      resize: none;
+      line-height: 19.3px;
+
+      &:active {
+        border-color: initial;
+        outline: none;
+      }
+    }
+
+    &-button {
+      border: none;
+      background: none;
+
+      &_right {
+        position: absolute;
+        bottom: 36px;
+        right: 32px;
+      }
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+    &-buttons-container {
+      display: flex;
+      flex-direction: row;
+      gap: 12px;
+      position: absolute;
+      bottom: 46px;
+      left: 31px;
+    }
+  }
+
+  &__button {
+    border: none;
+    background: none;
+    border-radius: 30px;
+    padding: 12px 22px;
+    color: #fff;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 16.9px;
+
+    &_blue {
+      background-color: #2676EE;
+    }
+
+    &_pink {
+      background-color: #EE26C2;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+}

@@ -1,0 +1,48 @@
+.footer-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: flex-start;
+
+  &__logo {
+    max-width: 180px;
+  }
+
+  &__link,
+  &__button {
+    color: var(--text-color);
+    font-weight: 500;
+    line-height: 21.75px;
+    background: none;
+    border: none;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &__button {
+      font-size: 15px;
+    }
+
+    &_active {
+      color: var(--text-color-active);
+      background: none;
+      border: none;
+
+      &:hover {
+        cursor: pointer;
+      }
+    }
+
+  }
+
+
+  &__email-container,
+  &__lang-container,
+  &__social-container {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 11px;
+  }
+}
