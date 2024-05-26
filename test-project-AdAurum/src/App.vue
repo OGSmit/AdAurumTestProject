@@ -6,7 +6,7 @@ import PersonalAssistant from './components/PersonalAssistant/PersonalAssistant.
 
 <template>
 
-  <header class="header">
+  <header id="header" class="header">
     <HeaderContainer />
   </header>
 

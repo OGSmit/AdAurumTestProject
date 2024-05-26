@@ -31,13 +31,6 @@
     gap: 20px;
   }
 
-  &__container-button {
-    display: flex;
-    align-items: flex-start;
-    padding: 0 20px;
-    gap: 10px;
-  }
-
   &__button {
     border: none;
     border-radius: 50%;
@@ -46,21 +39,41 @@
     position: absolute;
     top: 79px;
     right: 16px;
-
-
   }
 
-  &__button-big {
+  &__options {
+    position: absolute;
+    top: 132px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    z-index: 99;
+    background-color: #fff;
+    border-radius: 5px;
+    padding: 16px 32px;
+    align-items: end;
+    border: 1px solid rgba(238, 38, 194, 1);
+  }
+
+  &__button-option {
+    border: none;
+    background: none;
+    color: rgba(0, 0, 0, 1);
+    line-height: 19.36px;
     font-weight: 600;
-    font-size: 14px;
-    line-height: 16.9px;
-    padding: 10px;
+
+    &:hover {
+      cursor: pointer;
+      color: rgba(238, 38, 194, 1);
+    }
   }
 
   &__button-big,
   &__button {
     &:hover {
       cursor: pointer;
+      transform: scale(1.1);
     }
   }
 }

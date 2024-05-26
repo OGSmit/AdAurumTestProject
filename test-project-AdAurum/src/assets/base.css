@@ -79,4 +79,5 @@ body {
   line-height: 23.2px;
   text-align: center;
   font-weight: 500;
+  scroll-behavior: smooth;
 }

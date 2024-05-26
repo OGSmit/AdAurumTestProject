@@ -1,0 +1,55 @@
+.chat-message {
+  width: max-content;
+  max-width: 70%;
+  display: grid;
+  grid-template-columns: 15% 1fr;
+  grid-template-rows: auto auto;
+  gap: 10px 15px;
+  grid-template-areas:
+    "avatar message"
+    ". author-time"
+  ;
+
+&_my-message {
+  align-self: end;
+  text-align: end;
+}
+
+  &__avatar {
+    grid-area: avatar;
+    width: 36px;
+    height: 36px;
+    object-fit: contain;
+    border-radius: 50%;
+  }
+
+  &__text {
+    grid-area: message;
+    justify-self: start;
+    background-color: #fff;
+    border-radius: 5px;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 14px;
+    font-weight: 600;
+    text-align: start;
+  }
+
+  &__author-time {
+    grid-area: author-time;
+    justify-self: start;
+    display: flex;
+    gap: 5px;
+    justify-content: center;
+    place-items: start;
+  }
+
+  &__author {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 21px;
+    height: 32px;
+    text-wrap: nowrap;
+    width: auto;
+  }
+}
