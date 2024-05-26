@@ -78,7 +78,7 @@ export default {
           addFile({
             id: '123fqaq123sdasd657',
             fileName: 'Companyname 11/23',
-            isFileReady: true,
+            isFileReady: false,
             readyFrom: '1.06.22',
             fileType: 'Report',
             fileUrl: 'https://mp3box.kz/uploads/files/2023-07/portugal.-the-man-feel-it-still-456289421.mp3'
@@ -114,7 +114,7 @@ export default {
           addFile({
             id: '123fqaq123sdasd657',
             fileName: 'Companyname 11/23',
-            isFileReady: true,
+            isFileReady: false,
             readyFrom: '1.06.22',
             fileType: 'Mediaplan',
             fileUrl: 'https://mp3box.kz/uploads/files/2023-07/portugal.-the-man-feel-it-still-456289421.mp3'
