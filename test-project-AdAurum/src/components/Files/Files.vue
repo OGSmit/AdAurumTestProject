@@ -1,4 +1,5 @@
 <script setup>
+import { useFileStore } from '../../stores/userFileStore.js';
 import IconArrow from '../icons/IconArrow.vue';
 import FileItem from './Item/FileItem.vue';
 </script>
@@ -7,21 +8,23 @@ import FileItem from './Item/FileItem.vue';
 import styles from './Files.module.scss';
 export default {
   name: 'user-files',
-  props: {
-    isMediaplanReady: {
-      type: Boolean,
-      required: false,
-    },
-    isReportReady: {
-      type: Boolean,
-      required: false,
-    },
-  },
+  // props: {
+  //   isMediaplanReady: {
+  //     type: Boolean,
+  //     required: false,
+  //   },
+  //   isReportReady: {
+  //     type: Boolean,
+  //     required: false,
+  //   },
+  // },
   data() {
     return {
       isFilesListOpened: false,
       isMediaplanOpen: false,
-      isReportOpen: false
+      isReportOpen: false,
+      isReportReady: false,
+      isMediaplanReady: false,
     }
   },
   methods: {
@@ -33,16 +36,29 @@ export default {
         this.isReportOpen = !this.isReportOpen
       }
     },
-
     toggleFilesListOpen() {
       this.isFilesListOpened = !this.isFilesListOpened
     }
-
-
   },
   computed: {
     styleClasses: function () {
       return styles;
+    },
+    mediaPlans: function () {
+      const { files } = useFileStore();
+      const mediaPlans = files.filter(file => file.fileType === 'Mediaplan');
+      if (mediaPlans.length > 0) {
+        this.isMediaplanReady = true;
+      }
+      return mediaPlans
+    },
+    reports: function () {
+      const { files } = useFileStore();
+      const reports = files.filter(file => file.fileType === 'Report');
+      if (reports.length > 0) {
+        this.isReportReady = true;
+      }
+      return reports
     }
   }
 }
@@ -64,13 +80,15 @@ export default {
         @click="toggleFilesList('Mediaplan')">
         <IconArrow />
       </button>
-      <div class="container-files__files-container"
+      <ul class="container-files__files-container"
         :class="{ 'container-files__files-container_open': isMediaplanOpen }">
-        <FileItem />
-        <FileItem />
-        <FileItem />
+
+        <FileItem v-for="(mediaPlan, index) in mediaPlans" :key="mediaPlan.id" :fileName="mediaPlan.fileName"
+          :readyFrom="mediaPlan.readyFrom" :fileUrl="mediaPlan.fileUrl" :isFileReady="mediaPlan.isFileReady"
+          :fileType="mediaPlan.fileType" :isFirst="index === 0" />
+
         <button class="container-files__button-more" type="button">Показать еще</button>
-      </div>
+      </ul>
     </div>
     <div class="container-files__report-container">
       <h3 class="container-files__subtitle">Отчеты</h3>
@@ -78,10 +96,12 @@ export default {
         @click="toggleFilesList('Report')">
         <IconArrow />
       </button>
-      <div class="container-files__files-container" :class="{ 'container-files__files-container_open': isReportOpen }">
-        <FileItem />
+      <ul class="container-files__files-container" :class="{ 'container-files__files-container_open': isReportOpen }">
+        <FileItem v-for="(report, index) in reports" :fileUrl="report.fileUrl" :key="report.id"
+          :fileName="report.fileName" :readyFrom="report.readyFrom" :isFileReady="report.isFileReady"
+          :fileType="report.fileType" :isFirst="index === 0" />
         <button class="container-files__button-more" type="button">Показать еще</button>
-      </div>
+      </ul>
     </div>
   </div>
 </template>

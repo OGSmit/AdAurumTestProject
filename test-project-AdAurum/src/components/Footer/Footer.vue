@@ -34,10 +34,10 @@ export default {
   <div class='footer-container'>
     <!-- Лого -->
     <a href="#header" class="footer-container__link">
-      <LogoDark />
+      <LogoDark class="footer-container__logo" />
     </a>
     <!-- Политика конфиденциальности -->
-    <a href="https://policies.google.com/privacy?hl=ru" target="_blank" class="footer-container__link">Политика
+    <a href="https://policies.google.com/privacy?hl=ru" target="_blank" class="footer-container__link footer-container__link_privacy">Политика
       конфиденциальности
     </a>
     <!-- Выбор языка -->

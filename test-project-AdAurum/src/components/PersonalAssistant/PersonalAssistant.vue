@@ -55,25 +55,32 @@ export default {
     <!-- Медиапланы и Отчеты -->
     <Files :isReportReady="isReadyFiles.isReportReady" :isMediaplanReady="isReadyFiles.isMediaplanReady" />
     <!-- Блок со сменой помощника -->
-    <div class="personal-assistant__container-top">
-      <h2 class="personal-assistant__title">Личный помощник</h2>
-      <button class="personal-assistant__button" @click="handleShowOptions">
-        <IconSpread />
-      </button>
-      <!-- Модалка с опциями -->
-      <div class="personal-assistant__options" v-if="isOptionsOpened">
-        <button class="personal-assistant__button-option" type="button">Обратная связь о работе сервиса</button>
-        <button @click="handleChangeAssistant" class="personal-assistant__button-option" type="button">Сменить
-          помощника</button>
+    <div class="personal-assistant__wrapper">
+      <div class="personal-assistant__container-top">
+        <h2 class="personal-assistant__title">Личный помощник</h2>
+        <div class="personal-assistant__profile-container_inner">
+          <span class="personal-assistant__name">{{ assistant.name }}</span>
+          <span class="personal-assistant__email">{{ assistant.email }}</span>
+        </div>
+
+        <button class="personal-assistant__button" @click="handleShowOptions">
+          <IconSpread />
+        </button>
+        <!-- Модалка с опциями -->
+        <div class="personal-assistant__options" v-if="isOptionsOpened">
+          <button class="personal-assistant__button-option" type="button">Обратная связь о работе сервиса</button>
+          <button @click="handleChangeAssistant" class="personal-assistant__button-option" type="button">Сменить
+            помощника</button>
+        </div>
       </div>
+      <!-- Инфо пользователя -->
+      <div class="personal-assistant__profile-container">
+        <span class="personal-assistant__name">{{ assistant.name }}</span>
+        <span class="personal-assistant__email">{{ assistant.email }}</span>
+      </div>
+      <!-- Чат -->
+      <Chat :setFilesStatus="setIsReadyFilesStatus" />
     </div>
-    <!-- Инфо пользователя -->
-    <div class="personal-assistant__profile-container">
-      <span class="personal-assistant__name">{{ assistant.name }}</span>
-      <span class="personal-assistant__email">{{ assistant.email }}</span>
-    </div>
-    <!-- Чат -->
-    <Chat :setFilesStatus="setIsReadyFilesStatus" />
   </section>
 </template>
 

@@ -5,6 +5,7 @@
 
   &__logo {
     margin-bottom: 16px;
+    width: 182px;
   }
 
   &__span {
@@ -51,5 +52,93 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+  }
+}
+
+@media screen and (min-width: 760px) {
+  .header-container {
+    padding: 29px 40px 2px;
+    flex-direction: row;
+    justify-content: space-between;
+
+    &__logo {
+      margin-bottom: 16px;
+      width: 210px;
+    }
+
+    &__span {
+
+      font-weight: 700;
+      font-size: 14px;
+      line-height: 16.9px;
+
+      &_email {
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 16.9px;
+        order: 2;
+
+        &::before {
+          content: '';
+          display: inline-block;
+          background-image: url(../../assets/Group.svg);
+          background-position: center;
+          background-repeat: no-repeat;
+          width: 40px;
+          height: 40px;
+          vertical-align: middle;
+          margin-right: 10px;
+        }
+      }
+
+      &_profit {
+        order: 1;
+
+        &::before {
+          content: '';
+          display: inline-block;
+          background-image: url(../../assets/convert-card.svg);
+          background-color: rgba(238, 38, 194, 1);
+          background-position: center;
+          background-repeat: no-repeat;
+          border-radius: 50%;
+          width: 40px;
+          height: 40px;
+          vertical-align: middle;
+          margin-right: 10px;
+        }
+      }
+
+    }
+
+    &__info-container {
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 24px;
+      margin-right: 48px;
+    }
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .header-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-right: 0;
+    padding-left: 0;
+    align-items: inherit;
+
+    &__info-container {
+      margin-right: 26px;
+    }
+
+    &__logo {
+      margin-top: 8px;
+      width: 220px;
+    }
+
+    &__span {
+      font-size: 18.7px;
+    }
   }
 }

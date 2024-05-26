@@ -11,7 +11,7 @@ export default {
   data() {
     return {
       userEmail: 'Username@adaurum.ru',
-      userProfit: '5% выручки'
+      userProfit: '5%'
     }
   },
   methods: {
@@ -30,7 +30,7 @@ export default {
 <template>
   <div class="header-container">
     <!-- Лого - не активно -->
-    <Logo />
+    <Logo class="header-container__logo" />
     <!-- Данные пользователя -->
     <div class="header-container__sub">
       <div class="header-container__info-container">

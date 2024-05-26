@@ -1,4 +1,6 @@
 <script setup>
+import { useFileStore } from '../../stores/userFileStore.js';
+
 import Message from '../Chat/Message/Message.vue';
 import IconAddFile from '../icons/IconAddFile.vue';
 import IconAddPhoto from '../icons/IconAddPhoto.vue';
@@ -8,15 +10,18 @@ import IconSendMessage from '../icons/IconSendMessage.vue';
 <script>
 import simpleChatPromo from '@/vendor/simpleChatPromo';
 import styles from './Chat.module.scss';
+
+
 export default {
   name: 'chat-withAdmin',
   data() {
     return {
-      messages: []
+      messages: [],
+      inputvalue: '',
     };
   },
   props: {
-    setFilesStatus : {
+    setFilesStatus: {
       type: Function,
       required: true,
     }
@@ -34,26 +39,27 @@ export default {
         console.log('Selected file is not an image.');
       }
     },
-    handleSendMessage(event) {
+    handleSendMessage() {
       // мокаем отправку сообщений
-      event.preventDefault();
+      if (this.inputvalue === '/start') {
+        simpleChatPromo(this.messages)
+      }
+
       try {
+        if (!this.inputvalue) return;
+
         this.messages.push({
-          text: event.target[0].value,
+          text: this.inputvalue,
           id: '1231ASD123asCafr',
           date: new Date(),
           isMyMessage: true
         });
-
-        event.target[0].value = ''
+        this.inputvalue = '';
       }
       catch (error) {
         console.error(error);
       }
       // запускаем чат скрипт если у нас первое сообщение
-      if (this.messages.length === 1) {
-        simpleChatPromo(this.messages)
-      }
     },
     handleGetReport(event) {
       event.preventDefault();
@@ -68,7 +74,23 @@ export default {
         });
 
         setTimeout(() => {
-          this.setFilesStatus('isReportReady')
+          const { addFile } = useFileStore()
+          addFile({
+            id: '123fqaq123sdasd657',
+            fileName: 'Companyname 11/23',
+            isFileReady: true,
+            readyFrom: '1.06.22',
+            fileType: 'Report',
+            fileUrl: 'https://mp3box.kz/uploads/files/2023-07/portugal.-the-man-feel-it-still-456289421.mp3'
+          })
+          this.messages.push({
+            text: 'Отчет готов',
+            id: '12asd31ASD123asdasCafr',
+            date: new Date(),
+            isMyMessage: false,
+            author: "Система",
+            avatar: 'https://icon-icons.com/icons2/1320/PNG/512/-robot_86875.png'
+          });
         }, 3000)
       }
       catch (error) {
@@ -79,22 +101,45 @@ export default {
       event.preventDefault();
       try {
         this.messages.push({
-          text: 'Медиаплан успешно заказан, ожидайте...',
-          id: '12asd31ASD123asdasCafr',
-          date: new Date(),
-          isMyMessage: false,
-          author: "Система",
-          avatar: 'https://icon-icons.com/icons2/1320/PNG/512/-robot_86875.png'
-        });
+          id: '123fqaqsdasd657',
+          fileName: 'Companyname 11/23',
+          isFileReady: true,
+          readyFrom: '1.06.22',
+          fileType: 'Mediaplan',
+          fileUrl: 'https://mp3box.kz/uploads/files/2023-07/portugal.-the-man-feel-it-still-456289421.mp3'
+        })
 
         setTimeout(() => {
-          this.setFilesStatus('isMediaplanReady')
+          const { addFile } = useFileStore()
+          addFile({
+            id: '123fqaq123sdasd657',
+            fileName: 'Companyname 11/23',
+            isFileReady: true,
+            readyFrom: '1.06.22',
+            fileType: 'Mediaplan',
+            fileUrl: 'https://mp3box.kz/uploads/files/2023-07/portugal.-the-man-feel-it-still-456289421.mp3'
+          })
+
+          this.messages.push({
+            text: 'Медиаплан готов',
+            id: '12asd31ASD123asdasCafr',
+            date: new Date(),
+            isMyMessage: false,
+            author: "Система",
+            avatar: 'https://icon-icons.com/icons2/1320/PNG/512/-robot_86875.png'
+          });
         }, 3000)
       }
       catch (error) {
         console.error(error);
       }
-    },
+    }
+    ,
+    handleEnterKey(event) {
+      if (event.key === 'Enter') {
+        this.handleSendMessage(event);
+      }
+    }
   },
   computed: {
     styleClasses: function () {
@@ -107,26 +152,29 @@ export default {
 <template>
   <div class="chat">
     <!-- Окно чата -->
-    <div class="chat__message-container">
+    <ul class="chat__message-container">
       <!-- Заставка чата -->
-      <img v-if="messages.length === 0" src="../../assets/ChatImage.png" class="chat__info-img"
-        alt="картинка администратора чата">
-      <p v-if="messages.length === 0" class="chat__info-text">Это чат с администратором. Ты можешь с ним пообщаться по
-        любому вопросу о нашем сервисе и
-        узнать о ходе работы
-      </p>
+      <li v-if="messages.length === 0">
+        <img src="../../assets/ChatImage.png" class="chat__info-img" alt="картинка администратора чата">
+        <p class="chat__info-text">Это чат с администратором. Ты можешь с ним пообщаться по
+          любому вопросу о нашем сервисе и
+          узнать о ходе работы
+        </p>
+      </li>
+
       <!-- рендер сообщений из стейта -->
       <Message v-for="message in messages" :key="message.id" :avatar="message.avatar" :text="message.text"
         :author="message.author" :date="message.date" :isMyMessage="message.isMyMessage" />
-    </div>
+    </ul>
     <!-- Интерфейс заказа -->
     <div class="chat__button-container">
       <button class="chat__button chat__button_blue" @click="handleGetReport">Заказать отчет</button>
       <button class="chat__button chat__button_pink" @click="handleGetMediaPlan">Заказать медиаплан</button>
     </div>
     <!-- Форма чата -->
-    <form class="chat__form" @submit="handleSendMessage">
-      <textarea type="text" class="chat__form-input" rows="5" cols="33"> </textarea>
+    <form class="chat__form" @submit.prevent="handleSendMessage">
+      <input placeholder="/start запустить чат скрипт" v-model="inputvalue" type="text" class="chat__form-input"
+        rows="5" cols="33" @keydown="handleEnterKey" />
       <div class="chat__form-buttons-container">
         <label class="chat__form-button chat__form-button_file">
           <input type="file" @change="handleAddFile" style="display: none;">

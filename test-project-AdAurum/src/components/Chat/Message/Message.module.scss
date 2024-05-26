@@ -1,22 +1,17 @@
 .chat-message {
   width: max-content;
-  max-width: 70%;
-  display: grid;
-  grid-template-columns: 15% 1fr;
-  grid-template-rows: auto auto;
-  gap: 10px 15px;
-  grid-template-areas:
-    "avatar message"
-    ". author-time"
-  ;
+  max-width: 80%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
 
-&_my-message {
-  align-self: end;
-  text-align: end;
-}
+  &_my-message {
+    align-self: end;
+    text-align: end;
+    justify-content: end;
+  }
 
   &__avatar {
-    grid-area: avatar;
     width: 36px;
     height: 36px;
     object-fit: contain;
@@ -24,8 +19,7 @@
   }
 
   &__text {
-    grid-area: message;
-    justify-self: start;
+    width: 80%;
     background-color: #fff;
     border-radius: 5px;
     font-size: 14px;
@@ -33,15 +27,22 @@
     padding: 14px;
     font-weight: 600;
     text-align: start;
+    text-wrap: wrap;
+
+    &_my {
+      width: 100%;
+    }
   }
 
   &__author-time {
-    grid-area: author-time;
-    justify-self: start;
+    margin-left: 42px;
     display: flex;
-    gap: 5px;
-    justify-content: center;
-    place-items: start;
+    column-gap: 10px;
+
+    &_my {
+      margin-left: 0;
+      text-align: end;
+    }
   }
 
   &__author {
@@ -49,7 +50,21 @@
     font-size: 16px;
     line-height: 21px;
     height: 32px;
-    text-wrap: nowrap;
-    width: auto;
+  }
+}
+
+
+@media screen and (min-width: 760px) {
+  .chat-message {
+    &__avatar {
+      width: 49px;
+      height: 49px;
+    }
+
+    &__text {
+
+      line-height: 23px;
+
+    }
   }
 }

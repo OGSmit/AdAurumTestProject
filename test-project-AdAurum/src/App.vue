@@ -5,7 +5,6 @@ import PersonalAssistant from './components/PersonalAssistant/PersonalAssistant.
 </script>
 
 <template>
-
   <header id="header" class="header">
     <HeaderContainer />
   </header>
@@ -28,5 +27,18 @@ import PersonalAssistant from './components/PersonalAssistant/PersonalAssistant.
 .footer {
   background-color: #fff;
   padding: 40px 20px;
+}
+
+@media screen and (min-width: 760px) {
+  .footer {
+    background-color: rgba(235, 235, 235, 1);
+    padding: 32px 40px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  .footer {
+    padding-bottom: 20px;
+  }
 }
 </style>
