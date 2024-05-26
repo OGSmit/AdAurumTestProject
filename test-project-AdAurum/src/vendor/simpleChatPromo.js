@@ -34,7 +34,7 @@ export default async function simpleChatPromo(arr) {
 
   setTimeout(() => {
     arr.push({
-      text: 'Не успел сделать заглушку когда файлов для загрузки нет, авто скролл чата к последнему сообщению не смог реализовать, остались косяки по верстке но mvp считаю готовым',
+      text: 'След Vue.js проект будет гораздо лучше!',
       id: '123!3ad1asdasd',
       date: new Date(),
       isMyMessage: false,
@@ -46,7 +46,7 @@ export default async function simpleChatPromo(arr) {
 
   setTimeout(() => {
     arr.push({
-      text: 'Расскажу все остальное на собеседовании',
+      text: 'Расскажу все остальное на собеседовании :)',
       id: '123!3ad1asdasd',
       date: new Date(),
       isMyMessage: false,
