@@ -59,7 +59,8 @@ export default {
         this.isReportReady = true;
       }
       return reports
-    }
+    },
+
   }
 }
 </script>
@@ -74,7 +75,11 @@ export default {
 
   <div class="container-files" :class="{ 'container-files_opened': isFilesListOpened }">
     <h2 class="container-files__title">Файлы</h2>
-    <div class="container-files__mediaplan-container">
+    <div v-if="(reports.length === 0 && mediaPlans.length === 0)" class="container-files__promo">
+      <img class="container-files__img" src="../../assets/FileBlanc.png" alt="у вас пока нет файлов">
+      <span class="container-files__span">Закажи у личного помощника медиаплан. Он появится в этом разделе</span>
+    </div>
+    <div v-if="mediaPlans.length > 0" class="container-files__mediaplan-container">
       <h3 class="container-files__subtitle">Медиапланы</h3>
       <button class="container-files__button" :class="{ 'container-files__button_rotated': !isMediaplanOpen }"
         @click="toggleFilesList('Mediaplan')">
@@ -90,7 +95,7 @@ export default {
         <button class="container-files__button-more" type="button">Показать еще</button>
       </ul>
     </div>
-    <div class="container-files__report-container">
+    <div v-if="reports.length > 0" class="container-files__report-container">
       <h3 class="container-files__subtitle">Отчеты</h3>
       <button class="container-files__button" :class="{ 'container-files__button_rotated': !isReportOpen }"
         @click="toggleFilesList('Report')">
