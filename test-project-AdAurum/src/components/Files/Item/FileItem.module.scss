@@ -12,7 +12,7 @@
   width: 100%;
   border-radius: 5px;
   height: min-content;
-  background-color: #fff;
+  background-color: var(--color-white);
   padding: 9px 0 9px 9px;
 
   &__button {
@@ -56,6 +56,6 @@
 
 @media screen and (min-width: 760px) {
   .file-item {
-    background-color: #EBEBEB;
+    background-color: var(--color-lgrey);
   }
 }

@@ -64,23 +64,23 @@
     flex-direction: column;
     gap: 5px;
     z-index: 99;
-    background-color: #fff;
+    background-color: var(--color-white);
     border-radius: 5px;
     padding: 16px 32px;
     align-items: end;
-    border: 1px solid rgba(238, 38, 194, 1);
+    border: 1px solid var(--color-pink);
   }
 
   &__button-option {
     border: none;
     background: none;
-    color: rgba(0, 0, 0, 1);
+    color: var(--color-black);
     line-height: 19.36px;
     font-weight: 600;
 
     &:hover {
       cursor: pointer;
-      color: rgba(238, 38, 194, 1);
+      color: var(--color-pink);
     }
   }
 
@@ -101,7 +101,7 @@
     &__wrapper {
       display: flex;
       flex-direction: column;
-      background-color: #fff;
+      background-color: var(--color-white);
       border-radius: 20px;
       padding: 21px 20px 30px;
       width: calc(100% - 80px);

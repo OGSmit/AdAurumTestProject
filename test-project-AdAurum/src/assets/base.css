@@ -2,6 +2,12 @@
   --text-color: #525252;
   --text-color-active: #EE26C2;
   --section-gap: 160px;
+
+  --color-pink: rgb(238, 38, 194);
+  --color-lgrey: rgb(235, 235, 235);
+  --color-white: rgb(255, 255, 255);
+  --color-blue: rgb(38, 118, 238);
+  --color-black: rgb(0, 0, 0);
 }
 
 @media (prefers-color-scheme: dark) {

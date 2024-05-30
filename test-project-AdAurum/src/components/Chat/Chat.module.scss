@@ -6,7 +6,7 @@ li {
   display: flex;
   flex-direction: column;
   position: relative;
-  background-color: #EBEBEB;
+  background-color: var(--color-lgrey);
   min-height: 629px;
   width: 100%;
   padding: 30px 20px;
@@ -53,8 +53,8 @@ li {
     margin-top: 20px;
     height: 144px;
     border-radius: 25px;
-    border: 2px solid #EE26C2;
-    background-color: #fff;
+    border: 2px solid var(--color-pink);
+    background-color: var(--color-white);
 
     &-input {
       border: none;
@@ -102,17 +102,17 @@ li {
     background: none;
     border-radius: 30px;
     padding: 12px 22px;
-    color: #fff;
+    color: var(--color-white);
     font-size: 14px;
     font-weight: 600;
     line-height: 16.9px;
 
     &_blue {
-      background-color: #2676EE;
+      background-color: var(--color-blue);
     }
 
     &_pink {
-      background-color: #EE26C2;
+      background-color: var(--color-pink);
     }
 
     &:hover {
@@ -123,7 +123,7 @@ li {
 
 @media screen and (min-width: 760px) {
   .chat {
-    background-color: #EBEBEB;
+    background-color: var(--color-lgrey);
     border-radius: 20px;
     padding: 0;
     min-height: 596px;

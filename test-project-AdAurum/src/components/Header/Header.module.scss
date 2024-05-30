@@ -98,7 +98,7 @@
           content: '';
           display: inline-block;
           background-image: url(../../assets/convert-card.svg);
-          background-color: rgba(238, 38, 194, 1);
+          background-color: var(--color-pink);
           background-position: center;
           background-repeat: no-repeat;
           border-radius: 50%;
