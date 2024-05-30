@@ -8,21 +8,11 @@ import FileItem from './Item/FileItem.vue';
 import styles from './Files.module.scss';
 export default {
   name: 'user-files',
-  // props: {
-  //   isMediaplanReady: {
-  //     type: Boolean,
-  //     required: false,
-  //   },
-  //   isReportReady: {
-  //     type: Boolean,
-  //     required: false,
-  //   },
-  // },
   data() {
     return {
       isFilesListOpened: false,
-      isMediaplanOpen: false,
-      isReportOpen: false,
+      isMediaplanOpen: true,
+      isReportOpen: true,
       isReportReady: false,
       isMediaplanReady: false,
     }

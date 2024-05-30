@@ -97,24 +97,25 @@ export default {
         console.error(error);
       }
     },
+
     handleGetMediaPlan(event) {
       event.preventDefault();
       try {
         this.messages.push({
-          id: '123fqaqsdasd657',
-          fileName: 'Companyname 11/23',
-          isFileReady: true,
-          readyFrom: '1.06.22',
-          fileType: 'Mediaplan',
-          fileUrl: 'https://mp3box.kz/uploads/files/2023-07/portugal.-the-man-feel-it-still-456289421.mp3'
-        })
+          text: 'Медиаплан успешно заказан, ожидайте...',
+          id: '12asd31ASD123asCafr',
+          date: new Date(),
+          isMyMessage: false,
+          author: "Система",
+          avatar: 'https://icon-icons.com/icons2/1320/PNG/512/-robot_86875.png'
+        });
 
         setTimeout(() => {
           const { addFile } = useFileStore()
           addFile({
             id: '123fqaq123sdasd657',
             fileName: 'Companyname 11/23',
-            isFileReady: false,
+            isFileReady: true,
             readyFrom: '1.06.22',
             fileType: 'Mediaplan',
             fileUrl: 'https://mp3box.kz/uploads/files/2023-07/portugal.-the-man-feel-it-still-456289421.mp3'

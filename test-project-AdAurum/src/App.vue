@@ -31,7 +31,7 @@ import PersonalAssistant from './components/PersonalAssistant/PersonalAssistant.
 
 @media screen and (min-width: 760px) {
   .footer {
-    background-color: rgba(235, 235, 235, 1);
+    background-color: var(--color-lgrey);
     padding: 32px 40px;
   }
 }

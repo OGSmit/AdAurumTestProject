@@ -82,7 +82,8 @@ export default {
     <div class="status" :class="{ 'status_hide': !isFirst }">
       <IcontExclamationMark v-if="!isFileReady" />
       <IcontDone v-if="isFileReady" />
-      <span class="status__span">{{ `${fileType} от ${readyFrom} готов.` }}</span>
+      <span v-if="isFileReady"  class="status__span">{{ `${fileType} от ${readyFrom} готов.` }}</span>
+      <span v-if="!isFileReady"  class="status__span">{{ `${fileType} от ${readyFrom} еще не готов.` }}</span>
     </div>
   </li>
 </template>
