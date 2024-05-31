@@ -1,5 +1,67 @@
-@import './base.css';
+/* @import './base.css'; */
+
+:root {
+  --text-color: #525252;
+  --text-color-active: #EE26C2;
+  --section-gap: 160px;
+
+  --color-pink: rgb(238, 38, 194);
+  --color-lgrey: rgb(235, 235, 235);
+  --color-white: rgb(255, 255, 255);
+  --color-blue: rgb(38, 118, 238);
+  --color-black: rgb(0, 0, 0);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --color-background: var(--vt-c-black);
+    --color-background-soft: var(--vt-c-black-soft);
+    --color-background-mute: var(--vt-c-black-mute);
+
+    --color-border: var(--vt-c-divider-dark-2);
+    --color-border-hover: var(--vt-c-divider-dark-1);
+
+    --color-heading: var(--vt-c-text-dark-1);
+    --color-text: var(--vt-c-text-dark-2);
+  }
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  min-width: 375px;
+  width: 100%;
+  min-height: 100vh;
+  color: var(--text-color);
+  background: var(--color-white);
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI';
+  font-size: 16px;
+  line-height: 23.2px;
+  text-align: center;
+  font-weight: 500;
+  scroll-behavior: smooth;
+  scrollbar-width: 2px;
+  -webkit-scrollbar: 2px
+}
+
+
+@media screen and (min-width: 769px) {
+  body {
+    background: rgba(245, 245, 245, 1);
+
+  }
+}
 
 #app {
- padding: 0;
+  padding: 0;
 }

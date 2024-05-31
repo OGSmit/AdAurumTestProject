@@ -102,7 +102,7 @@ export default {
       event.preventDefault();
       try {
         this.messages.push({
-          text: 'Медиаплан успешно заказан, ожидайте...',
+          text: '3 Медиапланa успешно заказаны, ожидайте...',
           id: '12asd31ASD123asCafr',
           date: new Date(),
           isMyMessage: false,
@@ -112,14 +112,16 @@ export default {
 
         setTimeout(() => {
           const { addFile } = useFileStore()
-          addFile({
-            id: '123fqaq123sdasd657',
-            fileName: 'Companyname 11/23',
-            isFileReady: true,
-            readyFrom: '1.06.22',
-            fileType: 'Mediaplan',
-            fileUrl: 'https://mp3box.kz/uploads/files/2023-07/portugal.-the-man-feel-it-still-456289421.mp3'
-          })
+          for (let i = 0; i < 3; i++) {
+            addFile({
+              id: '123fqaq123sdasd657' + i,
+              fileName: 'Companyname 11/23',
+              isFileReady: true,
+              readyFrom: '1.06.22',
+              fileType: 'Mediaplan',
+              fileUrl: 'https://mp3box.kz/uploads/files/2023-07/portugal.-the-man-feel-it-still-456289421.mp3'
+            })
+          }
 
           this.messages.push({
             text: 'Медиаплан готов',

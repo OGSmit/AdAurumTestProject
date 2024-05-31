@@ -15,9 +15,15 @@ export default {
       isReportOpen: true,
       isReportReady: false,
       isMediaplanReady: false,
+      isReportsShowFullList: false,
+      isMediaplansShowFullList: false,
     }
   },
   methods: {
+    openFullFileList(list) {
+      const query = `is${list}ShowFullList`
+      this[query] = !this[query];
+    },
     toggleFilesList(list) {
       if (list === 'Mediaplan') {
         this.isMediaplanOpen = !this.isMediaplanOpen
@@ -36,17 +42,27 @@ export default {
     },
     mediaPlans: function () {
       const { files } = useFileStore();
-      const mediaPlans = files.filter(file => file.fileType === 'Mediaplan');
-      if (mediaPlans.length > 0) {
+      const mediaPlansFull = files.filter(file => file.fileType === 'Mediaplan');
+      if (mediaPlansFull.length > 0) {
         this.isMediaplanReady = true;
+      }
+
+      const mediaPlans = {
+        mediaPlansFull,
+        mediaPlansFirstThree: mediaPlansFull.slice(0, 3),
       }
       return mediaPlans
     },
     reports: function () {
       const { files } = useFileStore();
-      const reports = files.filter(file => file.fileType === 'Report');
-      if (reports.length > 0) {
+      const reportsFull = files.filter(file => file.fileType === 'Report');
+      if (reportsFull.length > 0) {
         this.isReportReady = true;
+      }
+
+      const reports = {
+        reportsFull,
+        reportsFirstThree: reportsFull.slice(0, 3),
       }
       return reports
     },
@@ -65,11 +81,16 @@ export default {
 
   <div class="container-files" :class="{ 'container-files_opened': isFilesListOpened }">
     <h2 class="container-files__title">Файлы</h2>
-    <div v-if="(reports.length === 0 && mediaPlans.length === 0)" class="container-files__promo">
+
+    <!-- Заглушка -->
+    <div v-if="(reports.reportsFull.length === 0 && mediaPlans.mediaPlansFull.length === 0)"
+      class="container-files__promo">
       <img class="container-files__img" src="../../assets/FileBlanc.png" alt="у вас пока нет файлов">
       <span class="container-files__span">Закажи у личного помощника медиаплан. Он появится в этом разделе</span>
     </div>
-    <div v-if="mediaPlans.length > 0" class="container-files__mediaplan-container">
+
+    <!-- Контейнер с Медиапланами -->
+    <div v-if="mediaPlans.mediaPlansFull.length > 0" class="container-files__mediaplan-container">
       <h3 class="container-files__subtitle">Медиапланы</h3>
       <button class="container-files__button" :class="{ 'container-files__button_rotated': !isMediaplanOpen }"
         @click="toggleFilesList('Mediaplan')">
@@ -78,24 +99,33 @@ export default {
       <ul class="container-files__files-container"
         :class="{ 'container-files__files-container_open': isMediaplanOpen }">
 
-        <FileItem v-for="(mediaPlan, index) in mediaPlans" :key="mediaPlan.id" :fileName="mediaPlan.fileName"
-          :readyFrom="mediaPlan.readyFrom" :fileUrl="mediaPlan.fileUrl" :isFileReady="mediaPlan.isFileReady"
-          :fileType="mediaPlan.fileType" :isFirst="index === 0" />
+        <FileItem
+          v-for="(mediaPlan, index) in !isMediaplansShowFullList ? mediaPlans.mediaPlansFirstThree : mediaPlans.mediaPlansFull"
+          :key="mediaPlan.id" :fileName="mediaPlan.fileName" :readyFrom="mediaPlan.readyFrom"
+          :fileUrl="mediaPlan.fileUrl" :isFileReady="mediaPlan.isFileReady" :fileType="mediaPlan.fileType"
+          :isFirst="index === 0" />
 
-        <button class="container-files__button-more" type="button">Показать еще</button>
+        <button v-if="mediaPlans.mediaPlansFull.length > 3" @click="openFullFileList('Mediaplans')"
+          class="container-files__button-more" type="button">{{ isMediaplansShowFullList ? 'Скрыть' : 'Показать еще' }}
+        </button>
+
       </ul>
     </div>
-    <div v-if="reports.length > 0" class="container-files__report-container">
+    <!-- Контейнер с Отчетами -->
+    <div v-if="reports.reportsFull.length > 0" class="container-files__report-container">
       <h3 class="container-files__subtitle">Отчеты</h3>
       <button class="container-files__button" :class="{ 'container-files__button_rotated': !isReportOpen }"
         @click="toggleFilesList('Report')">
         <IconArrow />
       </button>
       <ul class="container-files__files-container" :class="{ 'container-files__files-container_open': isReportOpen }">
-        <FileItem v-for="(report, index) in reports" :fileUrl="report.fileUrl" :key="report.id"
-          :fileName="report.fileName" :readyFrom="report.readyFrom" :isFileReady="report.isFileReady"
-          :fileType="report.fileType" :isFirst="index === 0" />
-        <button class="container-files__button-more" type="button">Показать еще</button>
+        <FileItem v-for="(report, index) in !isReportsShowFullList ? reports.reportsFirstThree : reports.reportsFull"
+          :fileUrl="report.fileUrl" :key="report.id" :fileName="report.fileName" :readyFrom="report.readyFrom"
+          :isFileReady="report.isFileReady" :fileType="report.fileType" :isFirst="index === 0" />
+
+        <button v-if="reports.reportsFull.length > 3" @click="openFullFileList('Reports')"
+          class="container-files__button-more" type="button">{{ isReportsShowFullList ? 'Скрыть' : 'Показать еще'
+          }}</button>
       </ul>
     </div>
   </div>
