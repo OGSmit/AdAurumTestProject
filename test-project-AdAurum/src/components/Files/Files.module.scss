@@ -134,10 +134,11 @@
     position: relative;
     min-width: 260px;
     scrollbar-width: thin;
-    overflow: scroll;
-    padding: 0 5px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    padding: 0 10px 10px;
     max-height: 260px;
-    scrollbar-color: var(--color-lgrey) var(--color-pink);
+    scrollbar-color: var(--color-pink) var(--color-lgrey);
   }
 }
 
