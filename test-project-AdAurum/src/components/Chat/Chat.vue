@@ -160,7 +160,7 @@ export default {
       class="chat__message-container">
       <!-- Заставка чата -->
       <li v-if="messages.length === 0">
-        <img src="../../assets/ChatImage.png" class="chat__info-img" alt="картинка администратора чата">
+        <img src="../../assets/ChatImage.webp" class="chat__info-img" alt="картинка администратора чата">
         <p class="chat__info-text">Это чат с администратором. Ты можешь с ним пообщаться по
           любому вопросу о нашем сервисе и
           узнать о ходе работы
@@ -173,13 +173,12 @@ export default {
     </ul>
     <!-- Интерфейс заказа -->
     <div class="chat__button-container">
-      <button class="chat__button chat__button_blue" @click="handleGetReport">Заказать отчет</button>
-      <button class="chat__button chat__button_pink" @click="handleGetMediaPlan">Заказать медиаплан</button>
+      <button aria-label="Заказать отчет" class="chat__button chat__button_blue" @click="handleGetReport">Заказать отчет</button>
+      <button aria-label="Заказать медиаплан" class="chat__button chat__button_pink" @click="handleGetMediaPlan">Заказать медиаплан</button>
     </div>
     <!-- Форма чата -->
     <form class="chat__form" @submit.prevent="handleSendMessage">
-      <input placeholder="/start запустить чат скрипт" v-model="inputvalue" type="text" class="chat__form-input"
-        rows="5" cols="33" @keydown="handleEnterKey" />
+      <input placeholder="/start запустить чат скрипт" v-model="inputvalue" type="text" class="chat__form-input"  @keydown="handleEnterKey" />
       <div class="chat__form-buttons-container">
         <label class="chat__form-button chat__form-button_file">
           <input type="file" @change="handleAddFile" style="display: none;">
@@ -190,7 +189,7 @@ export default {
           <IconAddPhoto />
         </label>
       </div>
-      <button class="chat__form-button chat__form-button_right" type="submit">
+      <button aria-label="Отправить сообщение" class="chat__form-button chat__form-button_right" type="submit">
         <IconSendMessage />
       </button>
     </form>

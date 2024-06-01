@@ -33,37 +33,41 @@ export default {
 <template>
   <div class='footer-container'>
     <!-- Лого -->
-    <a href="#header" class="footer-container__link">
+    <a rel="noopener noreferrer" aria-label="подняться на верх" href="#header" class="footer-container__link">
       <LogoDark class="footer-container__logo" />
     </a>
     <!-- Политика конфиденциальности -->
-    <a href="https://policies.google.com/privacy?hl=ru" target="_blank" class="footer-container__link footer-container__link_privacy">Политика
+    <a rel="noopener noreferrer" aria-label="Политика
+      конфиденциальности" href="https://policies.google.com/privacy?hl=ru" target="_blank"
+      class="footer-container__link footer-container__link_privacy">Политика
       конфиденциальности
     </a>
     <!-- Выбор языка -->
     <div class='footer-container__lang-container'>
       <IconChangeLang />
-      <button class="footer-container__button"
+      <button aria-label="сменить язык на русский" class="footer-container__button"
         :class="{ 'footer-container__button_active': selectedLang === 'RU' }" type="button"
         @click="handleChangeLang('RU')">RU</button>
-      <button class="footer-container__button"
+      <button aria-label="сменить язык на английский" class="footer-container__button"
         :class="{ 'footer-container__button_active': selectedLang === 'EN' }" type="button"
         @click="handleChangeLang('EN')">EN</button>
-      <button class="footer-container__button"
+      <button aria-label="сменить язык на турецкий" class="footer-container__button"
         :class="{ 'footer-container__button_active': selectedLang === 'TUR' }" type="button"
         @click="handleChangeLang('TUR')">TUR</button>
     </div>
     <!-- Почтовые контакты -->
     <div class='footer-container__email-container'>
       <IconEmail />
-      <a class="footer-container__link" href="mailto:pinkchicken@adaurum.ru" type="email">pinkchicken@adaurum.ru</a>
+      <a class="footer-container__link" href="mailto:pinkchicken@adaurum.ru">pinkchicken@adaurum.ru</a>
     </div>
     <!-- Мессенжеры -->
     <div class="footer-container__social-container">
-      <a class="footer-container__link" href="https://t.me/pinkchicken" target="_blank">
+      <a aria-label="ссылка на телеграм" rel="noopener noreferrer" class="footer-container__social-link" href="https://t.me/pinkchicken"
+        target="_blank">
         <IconTelegram />
       </a>
-      <a class="footer-container__link" href=" https://wa.me/pinkchicken" target="_blank">
+      <a aria-label="ссылка на вотсап" rel="noopener noreferrer" class="footer-container__social-link" href=" https://wa.me/pinkchicken"
+        target="_blank">
         <IconWhatsUp />
       </a>
     </div>

@@ -1,15 +1,23 @@
 /* @import './base.css'; */
 
 :root {
-  --text-color: #525252;
   --text-color-active: #EE26C2;
   --section-gap: 160px;
 
-  --color-pink: rgb(238, 38, 194);
   --color-lgrey: rgb(235, 235, 235);
   --color-white: rgb(255, 255, 255);
-  --color-blue: rgb(38, 118, 238);
+  /* Заменил цвет так как было не достаточно контрастно */
+  /* --color-blue: rgb(38, 118, 238); */
+  /* --color-pink: rgb(238, 38, 194); */
+  /* --text-color: #525252; */
+  --text-color: #4D4D4D;
+  --color-blue: rgb(17, 83, 182);
+  --color-pink: rgb(162, 16, 129);
   --color-black: rgb(0, 0, 0);
+
+  --main-shadow: 3px 3px 3px 0px rgba(0, 0, 0, 0.75);
+  --main-shadow-button: 3px 3px 3px 0px rgba(0, 0, 0, 0.75);
+  --inset-shadow-button: inset 3px 3px 3px 0px rgba(0,0,0,0.75);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -50,8 +58,9 @@ body {
   text-align: center;
   font-weight: 500;
   scroll-behavior: smooth;
-  scrollbar-width: 2px;
-  -webkit-scrollbar: 2px
+  scrollbar-width: thin;
+  -webkit-scrollbar: 2px;
+  box-shadow: 5px 5px 5px 0px rgba(0, 0, 0, 0.75);
 }
 
 

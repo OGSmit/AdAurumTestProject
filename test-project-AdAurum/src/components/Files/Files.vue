@@ -85,7 +85,7 @@ export default {
     <!-- Заглушка -->
     <div v-if="(reports.reportsFull.length === 0 && mediaPlans.mediaPlansFull.length === 0)"
       class="container-files__promo">
-      <img class="container-files__img" src="../../assets/FileBlanc.png" alt="у вас пока нет файлов">
+      <img class="container-files__img" src="../../assets/FileBlanc.webp" alt="у вас пока нет файлов">
       <span class="container-files__span">Закажи у личного помощника медиаплан. Он появится в этом разделе</span>
     </div>
 

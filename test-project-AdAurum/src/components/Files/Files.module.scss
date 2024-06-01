@@ -37,7 +37,7 @@
 
 .container-files {
   display: none;
-
+  box-shadow: var(--main-shadow);
   &__promo {
     display: flex;
     flex-direction: column;
@@ -87,7 +87,7 @@
   &__subtitle {
     margin-bottom: 20px;
     font-weight: 600;
-    font-style: 18px;
+    font-size: 18px;
   }
 
   &__title {

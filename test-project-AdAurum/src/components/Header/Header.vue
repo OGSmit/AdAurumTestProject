@@ -43,10 +43,10 @@ export default {
       </div>
       <!-- Блок кнопок пользователя -->
       <div class="header-container__button-container">
-        <button @click="handleButtonClick('Setting')" class="header-container__button header-container__button_setting">
+        <button aria-label="открыть настройки" @click="handleButtonClick('Setting')" class="header-container__button header-container__button_setting">
           <IconSetting />
         </button>
-        <button @click="handleButtonClick('Login, странно что она есть ибо визуально мы авторизированы')"
+        <button aria-label="выйти из профиля" @click="handleButtonClick('Login, странно что она есть ибо визуально мы авторизированы')"
           class="header-container__button header-container__button_login">
           <IconLogin />
         </button>

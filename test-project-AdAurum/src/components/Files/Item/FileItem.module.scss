@@ -14,6 +14,7 @@
   height: min-content;
   background-color: var(--color-white);
   padding: 9px 0 9px 9px;
+  animation: show-up .5s ease-in-out;
 
   &__button {
     position: absolute;
@@ -57,5 +58,15 @@
 @media screen and (min-width: 760px) {
   .file-item {
     background-color: var(--color-lgrey);
+  }
+}
+
+@keyframes show-up {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

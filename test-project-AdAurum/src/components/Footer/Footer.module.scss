@@ -10,34 +10,29 @@
   }
 
   &__link,
+  &__social-link,
   &__button {
     color: var(--text-color);
     font-weight: 500;
     line-height: 21.75px;
     background: none;
-    border: none;
     text-decoration: none;
+    border: none;
 
     &:hover {
       cursor: pointer;
     }
-
-    &__button {
-      font-size: 15px;
-    }
-
-    &_active {
-      color: var(--text-color-active);
-      background: none;
-      border: none;
-
-      &:hover {
-        cursor: pointer;
-      }
-    }
-
   }
 
+  &__button {
+    font-size: 15px;
+
+    &_active {
+      color: rgb(144, 14, 114);
+      background: none;
+      border: none;
+    }
+  }
 
   &__email-container,
   &__lang-container,
@@ -100,6 +95,7 @@
     column-gap: 20px;
     justify-content: space-between;
     align-items: flex-start;
+
     &__logo {
       max-width: 220px;
     }
