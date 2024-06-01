@@ -96,20 +96,21 @@ export default {
         @click="toggleFilesList('Mediaplan')">
         <IconArrow />
       </button>
-      <ul class="container-files__files-container"
-        :class="{ 'container-files__files-container_open': isMediaplanOpen }">
+      <div class="container-files__mediaplan-container-s">
+        <ul class="container-files__files-container"
+          :class="{ 'container-files__files-container_open': isMediaplanOpen }">
 
-        <FileItem
-          v-for="(mediaPlan, index) in !isMediaplansShowFullList ? mediaPlans.mediaPlansFirstThree : mediaPlans.mediaPlansFull"
-          :key="mediaPlan.id" :fileName="mediaPlan.fileName" :readyFrom="mediaPlan.readyFrom"
-          :fileUrl="mediaPlan.fileUrl" :isFileReady="mediaPlan.isFileReady" :fileType="mediaPlan.fileType"
-          :isFirst="index === 0" />
+          <FileItem
+            v-for="(mediaPlan, index) in !isMediaplansShowFullList ? mediaPlans.mediaPlansFirstThree : mediaPlans.mediaPlansFull"
+            :key="mediaPlan.id" :fileName="mediaPlan.fileName" :readyFrom="mediaPlan.readyFrom"
+            :fileUrl="mediaPlan.fileUrl" :isFileReady="mediaPlan.isFileReady" :fileType="mediaPlan.fileType"
+            :isFirst="index === 0" />
 
-        <button v-if="mediaPlans.mediaPlansFull.length > 3" @click="openFullFileList('Mediaplans')"
-          class="container-files__button-more" type="button">{{ isMediaplansShowFullList ? 'Скрыть' : 'Показать еще' }}
-        </button>
-
-      </ul>
+        </ul>
+      </div>
+      <button v-if="mediaPlans.mediaPlansFull.length > 3" @click="openFullFileList('Mediaplans')"
+        class="container-files__button-more" type="button">{{ isMediaplansShowFullList ? 'Скрыть' : 'Показать еще' }}
+      </button>
     </div>
     <!-- Контейнер с Отчетами -->
     <div v-if="reports.reportsFull.length > 0" class="container-files__report-container">
@@ -118,15 +119,17 @@ export default {
         @click="toggleFilesList('Report')">
         <IconArrow />
       </button>
-      <ul class="container-files__files-container" :class="{ 'container-files__files-container_open': isReportOpen }">
-        <FileItem v-for="(report, index) in !isReportsShowFullList ? reports.reportsFirstThree : reports.reportsFull"
-          :fileUrl="report.fileUrl" :key="report.id" :fileName="report.fileName" :readyFrom="report.readyFrom"
-          :isFileReady="report.isFileReady" :fileType="report.fileType" :isFirst="index === 0" />
+      <div class="container-files__report-container-s">
+        <ul class="container-files__files-container" :class="{ 'container-files__files-container_open': isReportOpen }">
+          <FileItem v-for="(report, index) in !isReportsShowFullList ? reports.reportsFirstThree : reports.reportsFull"
+            :fileUrl="report.fileUrl" :key="report.id" :fileName="report.fileName" :readyFrom="report.readyFrom"
+            :isFileReady="report.isFileReady" :fileType="report.fileType" :isFirst="index === 0" />
 
-        <button v-if="reports.reportsFull.length > 3" @click="openFullFileList('Reports')"
-          class="container-files__button-more" type="button">{{ isReportsShowFullList ? 'Скрыть' : 'Показать еще'
-          }}</button>
-      </ul>
+        </ul>
+      </div>
+      <button v-if="reports.reportsFull.length > 3" @click="openFullFileList('Reports')"
+        class="container-files__button-more" type="button">{{ isReportsShowFullList ? 'Скрыть' : 'Показать еще'
+        }}</button>
     </div>
   </div>
 </template>

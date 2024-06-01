@@ -132,11 +132,19 @@
     flex-direction: column;
     align-items: flex-start;
     position: relative;
+  }
+
+  &__mediaplan-container-s,
+  &__report-container-s {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
     min-width: 260px;
+    width: 100%;
     scrollbar-width: thin;
     overflow-y: scroll;
     overflow-x: hidden;
-    padding: 0 10px 10px;
+    padding: 0 5px 10px;
     max-height: 260px;
     scrollbar-color: var(--color-pink) var(--color-lgrey);
   }
@@ -208,8 +216,8 @@
       }
     }
 
-    &__mediaplan-container,
-    &__report-container {
+    &__mediaplan-container-s,
+    &__report-container-s {
       width: 48%;
     }
   }

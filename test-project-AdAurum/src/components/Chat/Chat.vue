@@ -148,14 +148,16 @@ export default {
     styleClasses: function () {
       return styles;
     }
-  }
+  },
 };
 </script>
 
 <template>
   <div class="chat">
     <!-- Окно чата -->
-    <ul class="chat__message-container">
+    <ul title="Сделал автоскролл к концу контейнера с помощью justify-content: flex-end;
+    Но при этом сам скроллбар пропадает, на :hover justify-content: start; и он появляется"
+      class="chat__message-container">
       <!-- Заставка чата -->
       <li v-if="messages.length === 0">
         <img src="../../assets/ChatImage.png" class="chat__info-img" alt="картинка администратора чата">

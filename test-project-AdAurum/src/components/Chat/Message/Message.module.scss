@@ -4,6 +4,8 @@
   display: flex;
   flex-wrap: wrap;
   gap: 5px;
+  animation: show-up .5s ease-in-out;
+
 
   &_my-message {
     align-self: end;
@@ -66,5 +68,15 @@
       line-height: 23px;
 
     }
+  }
+}
+
+@keyframes show-up {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }
