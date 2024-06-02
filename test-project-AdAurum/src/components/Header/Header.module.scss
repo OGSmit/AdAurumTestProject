@@ -36,8 +36,10 @@
     width: 40px;
     height: 40px;
     box-shadow: var( --main-shadow-button);
+    transition: all .5s ease-in-out;
 
     &:hover {
+      box-shadow: none;
       cursor: pointer;
     }
 

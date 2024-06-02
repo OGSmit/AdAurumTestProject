@@ -11,6 +11,8 @@ li {
   width: 100%;
   padding: 30px 20px;
 
+
+
   &__plug {
     height: 100%;
   }
@@ -119,11 +121,11 @@ li {
     line-height: 16.9px;
 
     &_blue {
-      background-color: var(--color-blue);
+      background-color: var(--button-blue);
     }
 
     &_pink {
-      background-color: var(--color-pink);
+      background-color: var(--button-pink);
     }
 
     &:hover {
