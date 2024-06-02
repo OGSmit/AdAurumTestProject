@@ -11,6 +11,10 @@ li {
   width: 100%;
   padding: 30px 20px;
 
+  &__plug {
+    height: 100%;
+  }
+
   &__info-img {
     margin: 0;
     width: 130px;
@@ -34,7 +38,7 @@ li {
     display: flex;
     flex-direction: column;
     scrollbar-width: thin;
-    overflow-y:scroll;
+    overflow-y: scroll;
     gap: 10px;
     padding: 19px 20px;
     justify-content: flex-end;
@@ -134,6 +138,10 @@ li {
     border-radius: 20px;
     padding: 0;
     min-height: 596px;
+
+    &__info-img {
+      margin: 40px auto 0;
+    }
 
     &__button-container {
       flex-direction: row;

@@ -159,7 +159,7 @@ export default {
     Но при этом сам скроллбар пропадает, на :hover justify-content: start; и он появляется"
       class="chat__message-container">
       <!-- Заставка чата -->
-      <li v-if="messages.length === 0">
+      <li class="chat__plug" v-if="messages.length === 0">
         <img src="../../assets/ChatImage.webp" class="chat__info-img" alt="картинка администратора чата">
         <p class="chat__info-text">Это чат с администратором. Ты можешь с ним пообщаться по
           любому вопросу о нашем сервисе и
