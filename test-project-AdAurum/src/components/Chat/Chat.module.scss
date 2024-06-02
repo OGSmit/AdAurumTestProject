@@ -42,7 +42,7 @@ li {
     scrollbar-width: thin;
     overflow-y: scroll;
     gap: 10px;
-    padding: 19px 20px;
+    padding: 19px 0;
     justify-content: flex-end;
     scrollbar-color: var(--color-pink) var(--color-lgrey);
 
@@ -173,6 +173,7 @@ li {
 
     &__message-container {
       height: 390px;
+      padding: 19px 20px;
     }
 
     &__button {
